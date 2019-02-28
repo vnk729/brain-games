@@ -1,6 +1,6 @@
 {
   "name": "brain-games-vnk",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "hexlet project",
   "bin": {
     "brain-games": "dist/bin/brain-games.js",
