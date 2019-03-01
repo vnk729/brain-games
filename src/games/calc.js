@@ -1,34 +1,34 @@
 import { randomInt, gameEngine } from '..';
+import { cons } from 'hexlet-pairs';
 
-const a = randomInt(1, 100);
-const b = randomInt(1, 100);
-const getOperator = () => randomInt(1, 3);
+const getGame = () => {
+  const a = randomInt(1, 100);
+  const b = randomInt(1, 100);
+  const operator = randomInt(1, 3);
+  let question;
+  let correntAnswer;
 
-const getQuestion = () => {
-  if (getOperator() === 1) {
-    return `${a} + ${b}`;
+  switch (operator) {
+    case 1:
+      question = `${a} + ${b}`;
+      correntAnswer = String(a + b);
+      break;
+    case 2:
+      question = `${a} - ${b}`;
+      correntAnswer = String(a - b);
+      break;
+    case 3:
+      question = `${a} * ${b}`;
+      correntAnswer = String(a * b);
+      break;
+    default:
+      break;
   }
-  if (getOperator() === 2) {
-    return `${a} - ${b}`;
-  }
-  if (getOperator() === 3) {
-    return `${a} * ${b}`;
-  }
-};
 
-const getCorrectAnswer = (question) => {
-  if (question === `${a} + ${b}`) {
-    return String(a + b);
-  }
-  if (question === `${a} - ${b}`) {
-    return String(a - b);
-  }
-  if (question === `${a} * ${b}`) {
-    return String(a * b);
-  }
+  return cons(question, correntAnswer);
 };
 
 export default () => {
-  const message = 'What is the result of the expression? \n';
-  return gameEngine(message, getQuestion, getCorrectAnswer);
+  const message = 'What is the result of the expression?';
+  return gameEngine(message, getGame);
 };
