@@ -1,5 +1,8 @@
-import { randomInt, gameEngine } from '..';
 import { cons } from 'hexlet-pairs';
+import gameEngine from '..';
+import randomInt from '../utils';
+
+const message = 'What is the result of the expression?';
 
 const getGame = () => {
   const a = randomInt(1, 100);
@@ -11,24 +14,21 @@ const getGame = () => {
   switch (operator) {
     case 1:
       question = `${a} + ${b}`;
-      correntAnswer = String(a + b);
+      correntAnswer = a + b;
       break;
     case 2:
       question = `${a} - ${b}`;
-      correntAnswer = String(a - b);
+      correntAnswer = a - b;
       break;
     case 3:
       question = `${a} * ${b}`;
-      correntAnswer = String(a * b);
+      correntAnswer = a * b;
       break;
     default:
       break;
   }
 
-  return cons(question, correntAnswer);
+  return cons(question, String(correntAnswer));
 };
 
-export default () => {
-  const message = 'What is the result of the expression?';
-  return gameEngine(message, getGame);
-};
+export default () => gameEngine(message, getGame);
