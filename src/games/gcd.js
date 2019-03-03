@@ -10,9 +10,9 @@ const getGame = () => {
   const a = randomInt(1, 100);
   const b = randomInt(1, 100);
   const question = `${a} ${b}`;
-  const correntAnswer = gcd(a, b);
+  const correctAnswer = String(gcd(a, b));
 
-  return cons(question, String(correntAnswer));
+  return cons(question, correctAnswer);
 };
 
 export default () => gameEngine(message, getGame);

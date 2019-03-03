@@ -9,7 +9,7 @@ const gameEngine = (message, getGame) => {
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!\n`);
 
-  for (let i = 0; i < gameRounds; i += 1) {
+  for (let round = 0; round < gameRounds; round += 1) {
     const game = getGame();
     const question = car(game);
     const correctAnswer = cdr(game);

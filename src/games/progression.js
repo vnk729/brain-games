@@ -4,25 +4,26 @@ import randomInt from '../utils';
 
 const message = 'What number is missing in the progression?';
 
+const progressionLength = 10;
+
 const getGame = () => {
   const firstNum = randomInt(0, 50);
   const interval = randomInt(1, 10);
-  const hideNum = randomInt(0, 9);
-  const progLength = 10;
+  const hiddenElementIndex = randomInt(0, progressionLength - 1);
 
   let question = '';
-  const correntAnswer = firstNum + interval * hideNum;
+  const correctAnswer = String(firstNum + interval * hiddenElementIndex);
 
-  for (let i = 0; i < progLength; i += 1) {
-    const currentNum = firstNum + interval * i;
-    if (i === hideNum) {
-      question += (i === progLength - 1) ? '..' : '.. ';
+  for (let i = 0; i < progressionLength; i += 1) {
+    if (i === hiddenElementIndex) {
+      question += '.. ';
     } else {
-      question += (i === progLength - 1) ? `${currentNum}` : `${currentNum} `;
+      question += `${firstNum + interval * i} `;
     }
   }
+  question = question.trim();
 
-  return cons(question, String(correntAnswer));
+  return cons(question, correctAnswer);
 };
 
 export default () => gameEngine(message, getGame);

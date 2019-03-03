@@ -8,27 +8,28 @@ const getGame = () => {
   const a = randomInt(1, 100);
   const b = randomInt(1, 100);
   const operator = randomInt(1, 3);
+
   let question;
-  let correntAnswer;
+  let correctAnswer;
 
   switch (operator) {
     case 1:
       question = `${a} + ${b}`;
-      correntAnswer = a + b;
+      correctAnswer = String(a + b);
       break;
     case 2:
       question = `${a} - ${b}`;
-      correntAnswer = a - b;
+      correctAnswer = String(a - b);
       break;
     case 3:
       question = `${a} * ${b}`;
-      correntAnswer = a * b;
+      correctAnswer = String(a * b);
       break;
     default:
       break;
   }
 
-  return cons(question, String(correntAnswer));
+  return cons(question, correctAnswer);
 };
 
 export default () => gameEngine(message, getGame);
